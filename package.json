@@ -1,5 +1,5 @@
 {
-  "name": "laravel-spark-addons",
+  "name": "spark-addons",
   "version": "0.0.2",
   "description": "Grow your revenue by offering multiple add-on subscriptions in your Laravel Spark app.",
   "main": "resources/assets/js/index.js",
@@ -12,12 +12,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benmag/laravel-spark-addons.git"
+    "url": "git+https://github.com/centality-labs/spark-addons.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/benmag/laravel-spark-addons/issues"
+    "url": "https://github.com/centality-labs/spark-addons/issues"
   },
-  "homepage": "https://github.com/benmag/laravel-spark-addons#readme"
+  "homepage": "https://github.com/centality-labs/spark-addons#readme"
 }
