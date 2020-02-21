@@ -1,0 +1,42 @@
+{
+  "name": "centrality-labs/laravel-spark-addons",
+  "version": "dev-master",
+  "description": "Grow your revenue by offering multiple add-on subscriptions in your Laravel Spark app.",
+  "keywords": ["laravel", "spark", "add-ons", "subscriptions", "saas"],
+  "homepage": "https://github.com/centrality-labs/laravel-spark-addons",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Centraility",
+      "homepage": "http://github.com/centrality-labs"
+    },
+    {
+      "name": "Ian Tasker",
+      "homepage": "http://github.com/iantasker"
+    }
+  ],
+  "require": {
+    "php" : "~7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "CentralityLabs\\SparkAddons\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CentralityLabs\\SparkAddons\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "CentralityLabs\\SparkAddons\\SparkAddonsServiceProvider"
+      ]
+    },
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}
