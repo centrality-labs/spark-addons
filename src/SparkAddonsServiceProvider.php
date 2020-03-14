@@ -83,3 +83,4 @@ class SparkAddonsServiceProvider extends ServiceProvider
             Spark::call(CancelAllActiveTeamAddonSubscriptions::class, [auth()->user(), $event->team, true]);
         });
     }
+}
