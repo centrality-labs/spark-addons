@@ -2,7 +2,11 @@
 
 namespace CentralityLabs\SparkAddons;
 
-class Addon
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
+
+class Addon extends Model
 {
     /**
      * The add-on's unique ID.
@@ -74,7 +78,7 @@ class Addon
     public function build(array $parameters)
     {
         foreach ($parameters as $property => $value) {
-            $property = camel_case($property);
+            $property = Str::camel($property);
             if(property_exists($this, $property) && (new \ReflectionProperty($this, $property))->isPublic()) {
                 $this->$property = $value;
             }
