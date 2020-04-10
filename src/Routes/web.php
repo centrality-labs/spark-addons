@@ -28,11 +28,11 @@ Route::group([
     Route::put($route('addons') . '/{addon}/' . $route('subscribe'), 'AddonController@update')->middleware('auth:api');
     Route::delete($route('addons') . '/{addonId}/' . $route('cancel'), 'AddonController@cancel')->middleware('auth:api');
     // Teams...
+    Route::get(
+        '/settings/'.Spark::teamsPrefix().'/{team}/'.$route('addons').'/'.$route('subscriptions'),
+        'Teams\AddonController@subscriptions'
+    )->middleware('auth:api');
     if(\Spark::canBillTeams()) {
-        Route::get(
-            '/settings/'.Spark::teamsPrefix().'/{team}/'.$route('addons').'/'.$route('subscriptions'),
-            'Teams\AddonController@subscriptions'
-        )->middleware('auth:api');
         Route::post(
             '/settings/'.Spark::teamsPrefix().'/{team}/'.$route('addons').'/{addon}/'.$route('subscribe'),
             'Teams\AddonController@subscribe'
@@ -47,8 +47,8 @@ Route::group([
         )->middleware('auth:api');
     }
     // Teams identified by path...
+    Route::get('{slug}/'.$route('addons').'/'.$route('subscriptions'), 'Teams\AddonController@subscriptions')->middleware('auth:api');
     if(\Spark::canBillTeams() && config('spark-addons.teamsIdentifiedByPath', false)) {
-        Route::get('{slug}/'.$route('addons').'/'.$route('subscriptions'), 'Teams\AddonController@subscriptions')->middleware('auth:api');
         Route::post('{slug}/'.$route('addons').'/{addon}/'.$route('subscribe'), 'Teams\AddonController@subscribe')->middleware('auth:api');
         Route::put('{slug}/'.$route('addons').'/{addon}/'.$route('subscribe'), 'Teams\AddonController@update')->middleware('auth:api');
         Route::delete('{slug}/'.$route('addons').'/{addonId}/'.$route('cancel'), 'Teams\AddonController@cancel')->middleware('auth:api');
