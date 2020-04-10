@@ -13,7 +13,7 @@ trait CashierMultiPlanSubscription
      * @param  string  $plan
      * @return $this
      */
-    public function swap($plan)
+    public function swap($plan, $options = [])
     {
         $subscription = $this->asStripeSubscription();
         $subscription->prorate = $this->prorate;
