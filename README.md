@@ -31,12 +31,12 @@ This respository was forked from `https://github.com/benmag/laravel-spark-addons
 ```php
   [
       'aliases' => [
-          'Spark' => \CentalityLabs\SparkAddons\Spark::class,
+          'Spark' => \CentralityLabs\SparkAddons\Spark::class,
       ]
   ]
 ```
 
-4. Switch the use `Laravel\Spark\Spark;` class in `SparkServiceProvider` to use `Centrality\SparkAddons\Spark;`
+4. Switch the use `Laravel\Spark\Spark;` class in `SparkServiceProvider` to use `CentralityLabs\SparkAddons\Spark;`
 
 5. Add the BillableAddonSubscriptions trait to your Team model
 
