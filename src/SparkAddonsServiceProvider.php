@@ -54,6 +54,28 @@ class SparkAddonsServiceProvider extends ServiceProvider
             $this->app->singleton('CentralityLabs\SparkAddons\\'.$key, 'CentralityLabs\SparkAddons\\'.$value);
         }
     }
+
+    **
+     * Register package macros.
+     */
+    protected function registerMacro(): void
+    {
+        Str::macro('SparkIntervalToStripeInterval', function ($string) {
+            switch($string)
+            {
+                case 'daily': 
+                    return 'day';
+                case 'weekly': 
+                    return 'week';
+                case 'monthly': 
+                    return 'month';
+                case 'yearly': 
+                    return 'year';
+                default:
+                    return $string;
+            }
+        });
+    }
     /**
      * Register any package services.
      *
@@ -63,6 +85,8 @@ class SparkAddonsServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/spark-addons.php', 'spark-addons');
         $this->registerServices();
+        $this->registerMacro();
+
         // User has cancelled their subscription. Cancel all of their add-on subscriptions.
         // When Stripe fires the `invoice.created` webhook at billing cycle end, their
         // usage will be calculated and recorded with Stripe for their final charge.
