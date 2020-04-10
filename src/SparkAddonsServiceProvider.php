@@ -55,7 +55,7 @@ class SparkAddonsServiceProvider extends ServiceProvider
         }
     }
 
-    **
+    /**
      * Register package macros.
      */
     protected function registerMacro(): void
