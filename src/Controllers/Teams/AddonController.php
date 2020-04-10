@@ -24,7 +24,7 @@ class AddonController extends Controller
     {
         // Get the team
         if(!is_null($id)) {
-            $team = \App\Team::where(config('spark-addons.teamsIndexKey', 'id'), $id)->firstOrFail();
+            $team = Spark::teamModel()::where(config('spark-addons.teamsIndexKey', 'id'), $id)->firstOrFail();
             abort_unless($request->user()->onTeam($team), 404);
         } else {
             $team = $request->user()->currentTeam;
@@ -59,7 +59,7 @@ class AddonController extends Controller
     {
         // Get the team
         if(!is_null($id)) {
-            $team = \App\Team::where(config('spark-addons.teamsIndexKey', 'id'), $id)->firstOrFail();
+            $team = Spark::teamModel()::where(config('spark-addons.teamsIndexKey', 'id'), $id)->firstOrFail();
             abort_unless($request->user()->onTeam($team), 404);
         } else {
             $team = $request->user()->currentTeam;
@@ -88,7 +88,7 @@ class AddonController extends Controller
     {
         // Get the team
         if(!is_null($id)) {
-            $team = \App\Team::where(config('spark-addons.teamsIndexKey', 'id'), $id)->firstOrFail();
+            $team = Spark::teamModel()::where(config('spark-addons.teamsIndexKey', 'id'), $id)->firstOrFail();
             abort_unless($request->user()->onTeam($team), 404);
         } else {
             $team = $request->user()->currentTeam;
@@ -116,7 +116,7 @@ class AddonController extends Controller
     {
         // Get the team
         if(!is_null($id)) {
-            $team = \App\Team::where(config('spark-addons.teamsIndexKey', 'id'), $id)->firstOrFail();
+            $team = Spark::teamModel()::where(config('spark-addons.teamsIndexKey', 'id'), $id)->firstOrFail();
             abort_unless($request->user()->onTeam($team), 404);
         } else {
             $team = $request->user()->currentTeam;
