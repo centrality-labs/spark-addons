@@ -1,8 +1,11 @@
 <?php
+
 namespace CentralityLabs\SparkAddons;
+
 use Illuminate\Support\ServiceProvider;
 use CentralityLabs\SparkAddons\Contracts\Interactions\CancelAllActiveAddonSubscriptions;
 use CentralityLabs\SparkAddons\Contracts\Interactions\CancelAllActiveTeamAddonSubscriptions;
+
 class SparkAddonsServiceProvider extends ServiceProvider
 {
     /**
@@ -10,12 +13,14 @@ class SparkAddonsServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
     public function boot()
     {
         $this->publishesAll();
         $this->loadRoutesFrom(__DIR__.'/Routes/web.php');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'spark-addons');
     }
+
     protected function publishesAll()
     {
         $this->publishes([
@@ -31,11 +36,13 @@ class SparkAddonsServiceProvider extends ServiceProvider
             __DIR__.'/../resources/views' => resource_path('views/vendor/spark-addons'),
         ], 'spark-addons-views');
     }
+
     /**
      * Register the Spark Addon services.
      *
      * @return void
      */
+
     protected function registerServices()
     {
         $services = [
@@ -58,6 +65,7 @@ class SparkAddonsServiceProvider extends ServiceProvider
     /**
      * Register package macros.
      */
+
     protected function registerMacro(): void
     {
         Str::macro('SparkIntervalToStripeInterval', function ($string) {
@@ -76,11 +84,13 @@ class SparkAddonsServiceProvider extends ServiceProvider
             }
         });
     }
+
     /**
      * Register any package services.
      *
      * @return void
      */
+
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/spark-addons.php', 'spark-addons');
