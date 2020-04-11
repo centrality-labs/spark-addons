@@ -1,6 +1,6 @@
 <?php
 
-namespace CentralityLabs\SparkAddons\Controllers\Teams;
+namespace CentralityLabs\SparkAddons\Http\Controllers\Teams;
 
 use Spark;
 use Validator;

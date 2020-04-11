@@ -1,6 +1,6 @@
 <?php
 
-namespace CentralityLabs\SparkAddons\Controllers;
+namespace CentralityLabs\SparkAddons\Http\Controllers;
 
 use Spark;
 use Validator;

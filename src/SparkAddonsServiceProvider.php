@@ -2,6 +2,7 @@
 
 namespace CentralityLabs\SparkAddons;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\ServiceProvider;
 use CentralityLabs\SparkAddons\Contracts\Interactions\CancelAllActiveAddonSubscriptions;
 use CentralityLabs\SparkAddons\Contracts\Interactions\CancelAllActiveTeamAddonSubscriptions;
